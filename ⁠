@@ -223,7 +223,6 @@
         }
 
         .timer-block {
-            background: #00000055;
             background: #1f1a14;
             padding: 8px 12px;
             border-radius: 30px;
@@ -345,10 +344,9 @@
     <h1>جەژنی قوربانتان پیرۆز بێت</h1>
     <div class="sub">🎉 عید مبارک 🎉</div>
 
-    <!-- ئەمە بۆری پیرۆزبایی لەلایەن 7AJI-Rebaz -->
     <div class="signature">
         <p>
-            <span>🌟 جەژنی قوربانتان پیرۆز دەکات لەلایەن 🌟</span>
+            <span>🌟 جەژنی قورbانتان پیرۆز دەکات لەلایەن 🌟</span>
             <span style="background:#f5e2be; color:#9b4a1a;">7AJI-Rebaz</span>
         </p>
     </div>
@@ -368,7 +366,6 @@
         <span class="dua-text">🍖 بەختیاری و بەرەکەت</span>
     </div>
 
-    <!-- کاتژمێری ژماردن بۆ رۆژی جەژن -->
     <div class="countdown-area">
         <div class="countdown-title">⏳ ماوە بۆ رۆژی جەژنی قوربان (بە نزیکایی) ⏳</div>
         <div class="timer" id="timerContainer">
@@ -397,18 +394,10 @@
         function setEidTarget() {
             const now = new Date();
             const currentYear = now.getFullYear();
-            let eidMonth = 5;
-            let eidDay = 16;
-            if (currentYear === 2025) {
-                eidMonth = 5;
-                eidDay = 6;
-            } else if (currentYear === 2026) {
-                eidMonth = 5;
-                eidDay = 16;
-            } else {
-                eidMonth = 5;
-                eidDay = 16;
-            }
+            
+            // چاککردنی مانگ و ڕۆژ بەپێی ساڵی ٢٠٢٦ (مانگی مەی دەکاتە 4 لە جاڤاسکڕێپت)
+            let eidMonth = 4; 
+            let eidDay = 27; 
             
             let calculatedTarget = new Date(currentYear, eidMonth, eidDay, 0, 0, 0);
             if (now > calculatedTarget) {
@@ -452,21 +441,21 @@
             shareBtn.addEventListener('click', () => {
                 if (navigator.share) {
                     navigator.share({
-                        title: 'جەژنی قوربانتان پیرۆز بێت',
-                        text: 'جەژنی قوربانت پیرۆز، پڕ لە بەرەکەت و خۆشی! - لەلایەن 7AJI-Rebaz',
+                        title: 'جەژنی قورbانتان پیرۆز بێت',
+                        text: 'جەژنی قورbانت پیرۆز، پڕ لە بەرەکەت و خۆشی! - لەلایەن 7AJI-Rebaz',
                         url: window.location.href,
                     }).catch(() => {
                         alert('سوپاس بۆ هەوڵەکەت، پیرۆزبایی بڵاو بوو ❤️');
                     });
                 } else {
                     const dummy = document.createElement('textarea');
-                    const greetingText = "🌟 جەژنی قوربانتان پیرۆز بێت! 🌟\nجەژنێکی پڕ لە خێر و بەرەکەت بۆ هەمووان. 🕌 تقبل الله منا ومنكم 🕌\n- لەلایەن 7AJI-Rebaz";
+                    const greetingText = "🌟 جەژنی قورbانتان پیرۆز بێت! 🌟\nجەژنێکی پڕ لە خێر و بەرەکەت بۆ هەمووان. 🕌 تقبل الله منا ومنكم 🕌\n- لەلایەن 7AJI-Rebaz";
                     dummy.value = greetingText;
                     document.body.appendChild(dummy);
                     dummy.select();
                     document.execCommand('copy');
                     document.body.removeChild(dummy);
-                    alert('پیرۆزباییەکە لە کلێپبۆرد کۆپی کرا! ئێستا دەتوانیت بۆ هاوڕێکانت بنێریت.');
+                    alert('پیرۆزباییەکە لە کلێپbۆرد کۆپی کرا! ئێستا دەتوانیت بۆ هاوڕێکانت بنێریت.');
                 }
             });
         }
@@ -474,10 +463,10 @@
         const greetAgainBtn = document.getElementById('greetAgainBtn');
         const messageBoxPara = document.querySelector('.message-box p');
         const alternativeMessages = [
-            '<strong>🏵️ جەژنی قوربان پیرۆز!</strong> هیوادارم ڕۆژانی جەژن بە خۆشی و شادی بەسەر بەریت، قوربانیەکەتان قبوڵ بێت. 🤲🏻',
-            '<strong>🍬 عید مبارک!</strong> بە دڵێکی پڕ لە ئیمان و خۆشحاڵی، جەژنێکی پڕ لە خێر و بەرەکەت بۆ خێزان و برادەرت. 🎊',
-            '<strong>🐏 جەژنەکەتان لەسەر خێر و شادی بێت!</strong> یادی ئیبراهیم و ئیسماعیل پیرۆز بێت، ئەم ڕۆژە پیرۆزە لەگەڵ کەسوکاری خۆشتان بە خۆشی بەسەر بەرن. 🕌',
-            '<strong>🌸 گوڵ و بۆنی جەژن... 🌸</strong> هەموو جەژنێک لەگەڵ خێزان و دۆستانی خۆشەویست. جەژنی قوربانتان پیرۆز بێت و هەموو خواستتان قبوڵ بێت. 🤍'
+            '<strong>🏵️ جەژنی قوربان پیرۆز!</strong> هیوادارم ڕۆژانی جەژن بە خۆشی و شادی بەسەر بەریت، قوربانیەکەتان قbوڵ بێت. 🤲🏻',
+            '<strong>🍬 عید مبارک!</strong> بە دڵێکی پڕ لە ئیمان و خۆشحاڵی، جەژنێکی پڕ لە خێر و بەرەکەت بۆ خێزان و bرادەرت. 🎊',
+            '<strong>🐏 جەژنەکەتان لەسەر خێر و شادی بێت!</strong> یادی ئیbراهیم و ئیسماعیل پیرۆز بێت، ئەم ڕۆژە پیرۆزە لەگەڵ کەسوکاری خۆشتان بە خۆشی بەسەر بەرن. 🕌',
+            '<strong>🌸 گوڵ و bۆنی جەژن... 🌸</strong> هەموو جەژنێک لەگەڵ خێزان و دۆستانی خۆشەویست. جەژنی قورbانتان پیرۆز بێت و هەموو خواستتان قbوڵ بێت. 🤍'
         ];
         let msgIndex = 0;
         
