@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Qala Marda | Snapchat ڕیکلام - Admen Plan</title>
+    <!-- CSP (Content Security Policy) بۆ پاراستن لە هەک و تزریق کۆد -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; img-src 'self' data: blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <!-- فۆنتی ڤەزیر ماتن بۆ ڕوونی و جوانی -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+    <!-- فۆنت ئۆسەم (ئایکۆنی جوان) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Vazirmatn', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: radial-gradient(circle at 10% 30%, #0a0f1e, #03070f);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* پشتەوەی جوڵاوی تایبەت بە سناپ */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 70% 20%, rgba(255, 255, 0, 0.08), transparent 55%),
+                repeating-linear-gradient(45deg, rgba(255,255,0,0.02) 0px, rgba(255,255,0,0.02) 1px, transparent 1px, transparent 12px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* کارتی سەرەکی (شووشەیی - زۆر جوان) */
+        .glass-snap-card {
+            position: relative;
+            z-index: 2;
+            max-width: 950px;
+            width: 100%;
+            background: rgba(10, 15, 28, 0.65);
+            backdrop-filter: blur(16px);
+            border-radius: 3rem;
+            border: 1px solid rgba(255, 230, 0, 0.6);
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.5), 0 0 0 2px rgba(255, 215, 0, 0.2);
+            padding: 2rem 2rem 2.2rem;
+            transition: all 0.4s ease;
+            animation: fadeUpSnap 0.8s cubic-bezier(0.2, 0.9, 0.3, 1.1);
+        }
+
+        @keyframes fadeUpSnap {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) scale(0.97);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* ناونیشانی سەرەکی + لۆگۆی سناپ */
+        .snap-hero {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .snap-logo {
+            font-size: 3.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #FFFC00, #FFD700, #FFB347);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .snap-logo i {
+            font-size: 3.5rem;
+            color: #FFFC00;
+            text-shadow: 0 0 8px #ffcc00;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: #FFE484;
+            margin-top: 12px;
+            letter-spacing: 1px;
+            font-weight: 400;
+            background: rgba(0,0,0,0.4);
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            backdrop-filter: blur(4px);
+        }
+
+        /* بەشی Admen Plan - بانەری ڕێکلامی پارێزراو */
+        .ad-container {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 1.5rem;
+            padding: 0.8rem;
+            margin: 1rem 0 1rem;
+            text-align: center;
+            border: 1px dashed #ffcc44;
+            backdrop-filter: blur(8px);
+        }
+
+        .ad-banner {
+            background: linear-gradient(95deg, #1e2a3a, #0f1724);
+            border-radius: 1.2rem;
+            padding: 0.8rem;
+            color: #FFD966;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            border: 1px solid #ffcc66;
+        }
+
+        .ad-banner i {
+            font-size: 1.6rem;
+        }
+
+        .mock-ad-btn {
+            background: #FFC107;
+            color: #0a0f1e;
+            border: none;
+            border-radius: 40px;
+            padding: 6px 18px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .mock-ad-btn:hover {
+            background: #FFDF80;
+            transform: scale(1.02);
+        }
+
+        /* ڕیکلامی سناپ چات - دوگمەی زەبەلاح */
+        .snap-promo-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 1.5rem 0 1rem;
+        }
+
+        .snap-main-btn {
+            background: linear-gradient(115deg, #FFFC00, #FFD700, #FFAA00);
+            padding: 1.3rem 2.2rem;
+            border-radius: 70px;
+            display: inline-flex;
+            align-items: center;
+            gap: 1.2rem;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: #1e1a00;
+            box-shadow: 0 20px 30px -8px rgba(0, 0, 0, 0.4), 0 0 0 2px rgba(255, 255, 180, 0.7);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-bottom: 0.8rem;
+            width: auto;
+            min-width: 260px;
+            justify-content: center;
+        }
+
+        .snap-main-btn i {
+            font-size: 2.6rem;
+            filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.2));
+        }
+
+        .snap-main-btn span {
+            letter-spacing: 2px;
+        }
+
+        .snap-main-btn:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 30px 35px -8px black, 0 0 0 3px #fff7b0;
+            background: linear-gradient(115deg, #FFEA40, #FFCC33);
+        }
+
+        /* تێکستی ڕیکلامی تایبەت بە خۆم */
+        .promotion-text {
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 2rem;
+            padding: 0.9rem 1.5rem;
+            margin: 1rem 0;
+            text-align: center;
+            border-right: 5px solid #FFD966;
+            backdrop-filter: blur(5px);
+            font-size: 1rem;
+            color: #f9eec1;
+        }
+
+        .promotion-text strong {
+            color: #FFE55C;
+            font-size: 1.1rem;
+        }
+
+        /* بەشی وێنەی جوڵاو (ئەنیمەیشنی زۆر جوان و چاویلکە) */
+        .animated-snap-media {
+            background: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(12px);
+            border-radius: 2.5rem;
+            padding: 1.6rem;
+            margin: 2rem 0 1.2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 220, 60, 0.7);
+            transition: all 0.2s;
+        }
+
+        .moving-snap-container {
+            position: relative;
+            width: 220px;
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        /* توخمەکانی جوڵاو بۆ دروستکردنی وێنەیەکی زیندوو و سەماکەر */
+        .glow-ghost {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, #ffef7e66, #ffb34733);
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            animation: morphing 5s infinite alternate;
+            filter: blur(20px);
+            opacity: 0.7;
+        }
+
+        .pulse-ring-snap {
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 3px solid #ffd966;
+            border-top-color: #fff200;
+            border-right-color: #ff8800;
+            animation: spinSnapRing 2.6s linear infinite;
+            box-shadow: 0 0 20px gold;
+        }
+
+        .snap-ghost-icon {
+            position: relative;
+            z-index: 10;
+            font-size: 5rem;
+            animation: bounceSnap 1.4s infinite alternate;
+            filter: drop-shadow(0 0 8px #ffcc00);
+        }
+
+        @keyframes morphing {
+            0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; transform: scale(0.9);}
+            100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: scale(1.2); background: radial-gradient(circle, #ffd966aa, #ff990077);}
+        }
+
+        @keyframes spinSnapRing {
+            0% { transform: rotate(0deg);}
+            100% { transform: rotate(360deg);}
+        }
+
+        @keyframes bounceSnap {
+            0% { transform: translateY(-8px) rotate(-5deg);}
+            100% { transform: translateY(12px) rotate(6deg);}
+        }
+
+        .animated-caption {
+            font-size: 1.3rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #FFE484, #FFC107);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: flickerText 1.2s infinite alternate;
+            margin-top: 6px;
+        }
+
+        @keyframes flickerText {
+            0% { opacity: 0.7; letter-spacing: 0px; text-shadow: 0 0 1px white;}
+            100% { opacity: 1; letter-spacing: 2px; text-shadow: 0 0 8px #ffdd55;}
+        }
+
+        /* بۆکسی تایبەت بە ڕیکلامی خۆم + بانگەشەی سناپ */
+        .self-ad-block {
+            background: linear-gradient(95deg, #0f172a, #020617);
+            border-radius: 2rem;
+            padding: 1.2rem 1.5rem;
+            margin: 1.2rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            border: 1px solid #ffcd4a;
+        }
+
+        .self-ad-text {
+            font-size: 0.95rem;
+            color: #FFEBC4;
+        }
+
+        .self-ad-text i {
+            color: #FFD966;
+            margin-left: 5px;
+        }
+
+        .snap-badge {
+            background: #00000066;
+            padding: 8px 18px;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: bold;
+            backdrop-filter: blur(4px);
+            border: 1px solid #ffcd4a;
+            animation: badgePulse 1.8s infinite;
+        }
+
+        @keyframes badgePulse {
+            0% { box-shadow: 0 0 0px #ffcd4a; background: rgba(0,0,0,0.5);}
+            100% { box-shadow: 0 0 15px #ffcd4a; background: #ffbb3344;}
+        }
+
+        /* فووتر */
+        .footer-note-snap {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.7rem;
+            color: #c9b06b;
+            border-top: 1px dashed #ffcd4a;
+            padding-top: 1rem;
+        }
+
+        /* security seal */
+        .security-seal {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 1rem;
+            font-size: 0.7rem;
+            color: #7e8a98;
+        }
+
+        /* ڕێکخستنی بۆ مۆبایل */
+        @media (max-width: 600px) {
+            .glass-snap-card {
+                padding: 1.3rem;
+            }
+            .snap-main-btn {
+                font-size: 1.3rem;
+                padding: 1rem 1.5rem;
+                gap: 0.8rem;
+            }
+            .snap-main-btn i {
+                font-size: 2rem;
+            }
+            .snap-logo {
+                font-size: 2.2rem;
+            }
+            .snap-logo i {
+                font-size: 2rem;
+            }
+            .moving-snap-container {
+                width: 160px;
+                height: 160px;
+            }
+            .snap-ghost-icon {
+                font-size: 3.5rem;
+            }
+            .pulse-ring-snap {
+                width: 130px;
+                height: 130px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="glass-snap-card">
+    <!-- سەرپەڕەی تایبەت بە Qala Marda & Snapchat -->
+    <div class="snap-hero">
+        <div class="snap-logo">
+            <i class="fab fa-snapchat-ghost"></i> 
+            <span>Qala Marda</span>
+        </div>
+        <div class="tagline">
+            <i class="fas fa-camera"></i> تۆڕی کوردی بۆ ڕیکلام | Snapchat
+        </div>
+    </div>
+
+    <!-- =============== بەشی Admen Plan =============== -->
+    <div class="ad-container">
+        <div class="ad-banner">
+            <i class="fas fa-shield-alt"></i>
+            <span><strong>Admen Plan • ڕیکلامی پارێزراو</strong> | هیچ کۆدی زیانبەخشێک ڕێگەپێنادرێت</span>
+            <button class="mock-ad-btn" id="demoAdBtn"><i class="fas fa-chart-line"></i> بینینی ڕیکلامی نموونەیی</button>
+        </div>
+        <div id="demoAdMessage" style="margin-top: 8px; font-size: 0.75rem; color: #ffdd99; display: none;"></div>
+    </div>
+    <!-- ============================================== -->
+
+    <!-- ناوەند: دوگمەی زێڕینی سناپ چات بۆ زیادکردن و پەیوەندی -->
+    <div class="snap-promo-area">
+        <a href="#" id="snapPrimaryBtn" class="snap-main-btn">
+            <i class="fab fa-snapchat-ghost"></i>
+            <span> زیادم بکە لە Snapchat</span>
+            <i class="fas fa-angle-left"></i>
+        </a>
+        <div class="promotion-text">
+            <i class="fas fa-bullhorn"></i> <strong>ڕیکلامی تایبەت:</strong> کلیک لە دوگمەی سناپ بکە و ڕاستەوخۆ پەیوەندیم پێوە بکە! ئامادەی کار و ڕێکلام و هاوکاری.
+        </div>
+    </div>
+
+    <!-- وێنەی جوڵاوی سەرنجڕاکێش (ئەنیمەیشنی هاوشێوەی گێف) -->
+    <div class="animated-snap-media">
+        <div class="moving-snap-container">
+            <div class="glow-ghost"></div>
+            <div class="pulse-ring-snap"></div>
+            <div class="snap-ghost-icon">
+                📸✨🤳
+            </div>
+        </div>
+        <div class="animated-caption">
+            <i class="fas fa-play-circle"></i> وێنەی جوڵاوی Snap <i class="fas fa-magic"></i>
+        </div>
+        <p style="font-size: 0.8rem; margin-top: 10px; color: #ffeaac;">
+            ئەم وێنەیە بە شێوەیەکی بەردەوام جوڵاوە | تایبەت بە Qala Marda
+        </p>
+    </div>
+
+    <!-- بەشی ڕیکلام بۆ خۆم + نیشاندانی تایبەتمەندییەکان -->
+    <div class="self-ad-block">
+        <div class="self-ad-text">
+            <i class="fas fa-chalkboard-user"></i> <strong>Qala Marda - خزمەتگوزاری ڕیکلام و بازاڕکردن:</strong><br>
+            بۆ براند، کەناڵ و پڕۆژەکانت، ڕیکلام لە Snapchat و تۆڕە کۆمەڵایەتییەکان. پەیوەندی بکە و پلانی تایبەت وەربگرە!
+        </div>
+        <div class="snap-badge">
+            <i class="fab fa-snapchat"></i> SnapChat Ad
+        </div>
+    </div>
+
+    <!-- مۆری ئاسایش و Admen Plan -->
+    <div class="security-seal">
+        <i class="fas fa-lock"></i> پارێزراو لە ژێر CSP 
+        <i class="fas fa-code-branch"></i> نەگۆڕدراوە بە هێرش
+        <i class="fas fa-eye-slash"></i> هیچ JavaScript-ێکی دەرەوە
+    </div>
+
+    <div class="footer-note-snap">
+        <i class="fas fa-qrcode"></i> ئەم وێبسایتە تەنها بۆ ڕیکلام و بەستەری Snapchat دیزاین کراوە | Qala Marda | Admen Ready
+    </div>
+</div>
+
+<script>
+    (function(){
+        // **********************************************
+        // Admen Plan: پاراستن و ڕێگەگرتن لە هەک
+        // **********************************************
+        
+        // پاراستنی Console لە لۆگ کردنی ناڕێک (بەڵام بەرگری لە دزینی داتا)
+        const originalLog = console.log;
+        console.log = function(...args) {
+            if (args.toString().includes('SECRET_CRED') || args.toString().includes('PASSWORD')) {
+                return;
+            }
+            originalLog.apply(console, args);
+        };
+        
+        // ڕێگری لە چوونە ژوورەوەی iframe نامۆ (قایمکردنی لایەنە زیانبەخشەکان)
+        if (window.self !== window.top) {
+            document.body.innerHTML = '<h1 style="color:red; text-align:center;">⚠️ هەوڵی هێرش ڕێگری لێگیرا (Frame blocking)</h1>';
+            throw new Error('Frame blocking activated');
+        }
+        
+        // پاراستنی تەواوی کلیکەکان و بەستەرەکان لە هێرشی XSS
+        const allLinks = document.querySelectorAll('a');
+        allLinks.forEach(link => {
+            let hrefValue = link.getAttribute('href');
+            if (hrefValue && (hrefValue.toLowerCase().startsWith('javascript:') || hrefValue.includes('onclick=') || hrefValue.includes('&#') )) {
+                link.removeAttribute('href');
+                link.style.opacity = '0.5';
+                link.style.pointerEvents = 'none';
+                console.warn("لینکی مەترسیدار لابردرا");
+            }
+        });
+        
+        // دیاریکردنی لینکی سناپ چات (دەتوانیت لینکی ڕاستەقینە لێرە دابنێیت)
+        let snapchatProfileLink = "https://www.snapchat.com/add/qalamarda_snap";   // ئەم لینکە بگۆڕە بۆ ئەکاونتەکەت
+        
+        const snapBtnMain = document.getElementById('snapPrimaryBtn');
+        function initSnapLink() {
+            if (snapchatProfileLink && snapchatProfileLink !== "#" && snapchatProfileLink.startsWith("https://") && !snapchatProfileLink.includes("javascript:")) {
+                snapBtnMain.href = snapchatProfileLink;
+                snapBtnMain.setAttribute('target', '_blank');
+                snapBtnMain.setAttribute('rel', 'noopener noreferrer');
+            } else {
+                snapBtnMain.href = "javascript:void(0);";
+                snapBtnMain.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    alert("⚠️ تکایە لینکی Snapchat خۆت لە کۆدەکەدا دابنێ! \n 🔧 لە ناو تاگی <script> دا snapchatProfileLink بکە بە لینکی ڕاستەقینەی خۆت.");
+                });
+            }
+        }
+        
+        initSnapLink();
+        
+        // ئەنیمەیشنی ئیمۆجی
+        const ghostIconElement = document.querySelector('.snap-ghost-icon');
+        let snapEmojis = ["📸✨", "🤳💛", "👻🔥", "🎯💥", "🌟📱", "⚡💬", "📸🎬", "💛👻"];
+        let emojiIndex = 0;
+        setInterval(() => {
+            if (ghostIconElement) {
+                emojiIndex = (emojiIndex + 1) % snapEmojis.length;
+                ghostIconElement.innerHTML = snapEmojis[emojiIndex];
+            }
+        }, 2100);
+        
+        // Admen Plan: بانەری ڕیکلامی نموونەیی (Demo) بەبێ کۆدی زیانبەخش
+        const demoBtn = document.getElementById('demoAdBtn');
+        const msgDiv = document.getElementById('demoAdMessage');
+        if (demoBtn) {
+            demoBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                msgDiv.style.display = 'block';
+                msgDiv.innerHTML = '<i class="fas fa-chart-simple"></i> ڕیکلامی سەلامەت: ئەم بانەرە تەنها بۆ پێشاندانی Admen Plan - هیچ تراکێکی دەرەوە یان کوکی زیانبەخش نییە.';
+                setTimeout(() => {
+                    msgDiv.style.opacity = '1';
+                }, 10);
+                setTimeout(() => {
+                    msgDiv.style.display = 'none';
+                }, 4000);
+            });
+        }
+        
+        // زیادکردنی هۆشیاری بۆ فۆڕمە نامۆکان (ئەگەر هیچ فۆڕمێک نییە بەڵام بۆ پاراستن)
+        const forms = document.querySelectorAll('form');
+        forms.forEach(form => {
+            form.addEventListener('submit', function(ev) {
+                ev.preventDefault();
+                alert("ناردنی فۆڕم لەم پەڕەیەدا ڕێگەپێدراو نییە (Admen Plan)");
+            });
+        });
+        
+        // ڕێگری لە کۆپی کردنی داتای هەستیار لە کڵکبۆرد (ئەگەر کۆدی زیانبەخش هەوڵبدات)
+        document.addEventListener('copy', function(e) {
+            let selection = window.getSelection().toString();
+            if (selection && selection.includes('snapchatProfileLink')) {
+                e.preventDefault();
+                alert("پارێزراو: ناتوانیت ئەم بەشە کۆپی بکەیت.");
+            }
+        });
+        
+        // هۆشیاری ئاسایش لە کەنسۆڵ بۆ پشکنەران
+        console.log("%c✅ Qala Marda | Admen Plan فعالە | CSP پارێزراوە | نەهێشتنی هەک", "color: #00FFAA; font-size: 14px; font-weight: bold");
+        console.log("%c🔒 هیچ کۆدێکی ناڕێک لەم پەڕەیەدا کار ناکات", "color: #FFD966");
+        
+        // بەشێکی زیادە: ڕێگری لە دەستکاری DOM لە لایەن scriptی دەرەوە
+        const originalCreateElement = document.createElement;
+        document.createElement = function(tagName) {
+            if (tagName.toLowerCase() === 'script' && document.currentScript && document.currentScript.src && !document.currentScript.src.startsWith(window.location.origin)) {
+                throw new Error('ڕێگری لە دروستکردنی scriptی دەرەوە کرا');
+            }
+            return originalCreateElement.call(document, tagName);
+        };
+        
+        // ڕێگری لە گۆڕینی innerHTML بە شێوەی زیانبەخش (بەشێک لە XSS)
+        const originalInnerHTMLSetter = Object.getOwnPropertyDescriptor(Element.prototype, 'innerHTML').set;
+        Object.defineProperty(Element.prototype, 'innerHTML', {
+            set: function(value) {
+                if (typeof value === 'string' && (value.includes('<script') || value.includes('onload=') || value.includes('onerror='))) {
+                    console.warn("هەوڵی تزریق کۆد ڕێگری لێگیرا");
+                    return;
+                }
+                originalInnerHTMLSetter.call(this, value);
+            }
+        });
+        
+    })();
+</script>
+</body>
+</html>
