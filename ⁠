@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ckb">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>جەژنی قوربانتان پیرۆز بێت | 7AJI-Rebaz</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Poppins', 'Tahoma', 'Roboto', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(145deg, #fef5e7 0%, #f9e0b0 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* هەوری بچووک بۆ جوانکاری */
+        .cloud {
+            position: absolute;
+            background: rgba(255, 255, 245, 0.7);
+            border-radius: 1000px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .cloud1 { width: 180px; height: 70px; top: 5%; left: -50px; }
+        .cloud2 { width: 260px; height: 95px; bottom: 8%; right: -40px; }
+        .cloud3 { width: 140px; height: 55px; top: 20%; right: 5%; }
+        
+        .cloud1::before, .cloud1::after,
+        .cloud2::before, .cloud2::after,
+        .cloud3::before, .cloud3::after {
+            content: '';
+            position: absolute;
+            background: inherit;
+            border-radius: 50%;
+        }
+        .cloud1::before { width: 70px; height: 70px; top: -35px; left: 20px; }
+        .cloud1::after { width: 50px; height: 50px; top: -20px; left: 80px; }
+        .cloud2::before { width: 100px; height: 100px; top: -50px; left: 30px; }
+        .cloud2::after { width: 70px; height: 70px; top: -30px; left: 120px; }
+        .cloud3::before { width: 55px; height: 55px; top: -28px; left: 15px; }
+        .cloud3::after { width: 45px; height: 45px; top: -15px; left: 60px; }
+
+        /* کارتی سەرەکی */
+        .card {
+            position: relative;
+            z-index: 10;
+            max-width: 550px;
+            width: 100%;
+            background: rgba(255, 255, 250, 0.96);
+            backdrop-filter: blur(2px);
+            border-radius: 68px 68px 80px 80px;
+            box-shadow: 0 30px 45px rgba(0, 0, 0, 0.2), 0 8px 18px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255,255,255,0.6);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            text-align: center;
+            padding: 30px 25px 45px;
+            border: 1px solid rgba(255,215,150,0.8);
+        }
+
+        .card:hover {
+            transform: scale(1.01);
+        }
+
+        /* بەشی سەرەوە نەخش و ڕوناکی */
+        .hero-icon {
+            font-size: 70px;
+            filter: drop-shadow(2px 8px 12px rgba(0,0,0,0.2));
+            margin-bottom: 12px;
+            animation: gentleFloat 3s infinite ease-in-out;
+            display: inline-block;
+        }
+
+        @keyframes gentleFloat {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            background: linear-gradient(135deg, #c27e2e, #a5581a, #e6b153);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin: 10px 0 8px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 5px rgba(160, 80, 20, 0.1);
+        }
+
+        .sub {
+            font-size: 1.1rem;
+            color: #8b5a2b;
+            background: #fff1e0;
+            display: inline-block;
+            padding: 5px 18px;
+            border-radius: 40px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            box-shadow: inset 0 0 0 1px #ffe1b3, 0 3px 6px rgba(0,0,0,0.05);
+        }
+
+        /* ستایل بۆ ناوی 7AJI-Rebaz */
+        .signature {
+            background: linear-gradient(120deg, #c27e2e20, #e6b15330);
+            padding: 10px 20px;
+            border-radius: 60px;
+            margin: 5px auto 15px auto;
+            display: inline-block;
+            width: auto;
+            backdrop-filter: blur(4px);
+            border: 1px solid #f3ce8e;
+        }
+        .signature p {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #aa5c1c;
+            direction: rtl;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .signature span {
+            background: white;
+            padding: 4px 14px;
+            border-radius: 40px;
+            font-size: 1rem;
+            box-shadow: inset 0 0 0 1px #e2b87a;
+        }
+
+        .message-box {
+            background: #fffaf2;
+            border-radius: 50px;
+            padding: 20px 20px;
+            margin: 15px 0;
+            border-left: 8px solid #de922e;
+            border-right: 2px solid #f5d59c;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+        }
+
+        .message-box p {
+            font-size: 1.2rem;
+            line-height: 1.55;
+            color: #3c2a1f;
+            font-weight: 500;
+            direction: rtl;
+            font-family: 'Segoe UI', 'Noto Sans Arabic', system-ui;
+        }
+
+        .message-box .arabic-style {
+            font-size: 1.45rem;
+            font-weight: 600;
+            color: #b45f1b;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .dua-box {
+            background: #e9dacb;
+            border-radius: 60px;
+            padding: 14px 18px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            direction: rtl;
+        }
+
+        .dua-text {
+            font-size: 1rem;
+            color: #5b3a1c;
+            font-weight: 600;
+            background: white;
+            padding: 8px 16px;
+            border-radius: 60px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .countdown-area {
+            background: #2b241c;
+            color: #ffd78c;
+            border-radius: 70px;
+            padding: 16px 10px;
+            margin: 20px 0 15px;
+            text-align: center;
+            backdrop-filter: blur(4px);
+            box-shadow: inset 0 0 0 1px #b97f3e, 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .countdown-title {
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            color: #ffcf8a;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .timer {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            flex-wrap: wrap;
+            font-family: monospace;
+        }
+
+        .timer-block {
+            background: #00000055;
+            background: #1f1a14;
+            padding: 8px 12px;
+            border-radius: 30px;
+            min-width: 70px;
+            backdrop-filter: blur(4px);
+            box-shadow: inset 0 1px 1px rgba(255,255,200,0.2), 0 2px 4px black;
+        }
+
+        .timer-num {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #f7bc45;
+            line-height: 1;
+        }
+
+        .timer-label {
+            font-size: 0.7rem;
+            color: #ecbe7a;
+            text-transform: uppercase;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin: 20px 0 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            border: none;
+            background: linear-gradient(120deg, #d4913a, #b96f2a);
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: bold;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 5px 0 #6e3a12;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #6e3a12;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #b45f2b;
+            border: 2px solid #d48d3a;
+            box-shadow: none;
+            text-shadow: none;
+        }
+
+        .btn-outline:active {
+            transform: scale(0.97);
+            box-shadow: none;
+        }
+
+        footer {
+            margin-top: 35px;
+            font-size: 0.7rem;
+            color: #b87a3c;
+            border-top: 1px dashed #eccb96;
+            padding-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 500px) {
+            .card {
+                padding: 22px 16px 30px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .timer-block {
+                min-width: 55px;
+                padding: 4px 8px;
+            }
+            .timer-num {
+                font-size: 1.5rem;
+            }
+            .message-box p {
+                font-size: 1rem;
+            }
+            .signature p {
+                font-size: 0.9rem;
+            }
+        }
+
+        .rtl-text {
+            direction: rtl;
+        }
+        .center {
+            text-align: center;
+        }
+        .shine {
+            background: radial-gradient(circle at 30% 10%, rgba(255,245,200,0.8), transparent);
+        }
+    </style>
+</head>
+<body>
+
+<div class="cloud cloud1"></div>
+<div class="cloud cloud2"></div>
+<div class="cloud cloud3"></div>
+
+<div class="card">
+    <div class="hero-icon">
+        🐏✨
+    </div>
+    <h1>جەژنی قوربانتان پیرۆز بێت</h1>
+    <div class="sub">🎉 عید مبارک 🎉</div>
+
+    <!-- ئەمە بۆری پیرۆزبایی لەلایەن 7AJI-Rebaz -->
+    <div class="signature">
+        <p>
+            <span>🌟 جەژنی قوربانتان پیرۆز دەکات لەلایەن 🌟</span>
+            <span style="background:#f5e2be; color:#9b4a1a;">7AJI-Rebaz</span>
+        </p>
+    </div>
+
+    <div class="message-box">
+        <span class="arabic-style">🕌 تقبل الله منا و منكم 🕌</span>
+        <p>
+            بەخێربێیت بۆ لاپەڕەی پیرۆزبایی جەژنی قوربان. <br>
+            بە دڵێکی پڕ لە خۆشحاڵی و ڕێز، پیرۆزبایی خۆمان بۆ تۆ و خێزان و برادەرانت پێشکەش دەکەین. <br>
+            <strong>جەژنت پیرۆز، هەموو ساڵێک بە خێر و شادی بەسەر بەریت!</strong>
+        </p>
+    </div>
+
+    <div class="dua-box">
+        <span class="dua-text">🤲 دەرخواز: ڕەحمەت و لێبوردن</span>
+        <span class="dua-text">🕋 حەجێکی مەجبوور</span>
+        <span class="dua-text">🍖 بەختیاری و بەرەکەت</span>
+    </div>
+
+    <!-- کاتژمێری ژماردن بۆ رۆژی جەژن -->
+    <div class="countdown-area">
+        <div class="countdown-title">⏳ ماوە بۆ رۆژی جەژنی قوربان (بە نزیکایی) ⏳</div>
+        <div class="timer" id="timerContainer">
+            <div class="timer-block"><span class="timer-num" id="days">00</span><div class="timer-label">ڕۆژ</div></div>
+            <div class="timer-block"><span class="timer-num" id="hours">00</span><div class="timer-label">کاتژمێر</div></div>
+            <div class="timer-block"><span class="timer-num" id="minutes">00</span><div class="timer-label">خولەک</div></div>
+            <div class="timer-block"><span class="timer-num" id="seconds">00</span><div class="timer-label">چرکە</div></div>
+        </div>
+        <div style="font-size: 12px; margin-top: 10px; opacity:0.8;">🌟 رۆژی 10ی زولحەجە 🌟</div>
+    </div>
+
+    <div class="btn-group">
+        <button class="btn" id="shareBtn">📢 بڵاوکردنەوەی پیرۆزبایی</button>
+        <button class="btn btn-outline" id="greetAgainBtn">🌙 دعات بۆ جەژن نوێ بکەرەوە</button>
+    </div>
+
+    <footer>
+        <span>🏕️ جەژنی قوربان لە هەموو ڕوویەکەوە پیرۆز بێت</span>
+        <span>🐑 بەبیر هێنانەوەی قوربانی و ئیمان</span>
+    </footer>
+</div>
+
+<script>
+    (function() {
+        let targetDate;
+        function setEidTarget() {
+            const now = new Date();
+            const currentYear = now.getFullYear();
+            let eidMonth = 5;
+            let eidDay = 16;
+            if (currentYear === 2025) {
+                eidMonth = 5;
+                eidDay = 6;
+            } else if (currentYear === 2026) {
+                eidMonth = 5;
+                eidDay = 16;
+            } else {
+                eidMonth = 5;
+                eidDay = 16;
+            }
+            
+            let calculatedTarget = new Date(currentYear, eidMonth, eidDay, 0, 0, 0);
+            if (now > calculatedTarget) {
+                calculatedTarget = new Date(currentYear + 1, eidMonth, eidDay, 0, 0, 0);
+            }
+            return calculatedTarget;
+        }
+
+        targetDate = setEidTarget();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate.getTime() - now;
+            
+            if (distance < 0) {
+                document.getElementById('days').innerText = '🎉';
+                document.getElementById('hours').innerText = '00';
+                document.getElementById('minutes').innerText = '00';
+                document.getElementById('seconds').innerText = '00';
+                const timerDiv = document.querySelector('.countdown-title');
+                if(timerDiv) timerDiv.innerHTML = "✨ جەژن هات، جەژنتان پیرۆز! ✨";
+                return;
+            }
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (24 * 60 * 60 * 1000)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (60 * 60 * 1000)) / (1000 * 60));
+            const seconds = Math.floor((distance % (60 * 1000)) / 1000);
+            
+            document.getElementById('days').innerText = days < 10 ? '0' + days : days;
+            document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
+            document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+            document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+        }
+        
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+        
+        const shareBtn = document.getElementById('shareBtn');
+        if (shareBtn) {
+            shareBtn.addEventListener('click', () => {
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'جەژنی قوربانتان پیرۆز بێت',
+                        text: 'جەژنی قوربانت پیرۆز، پڕ لە بەرەکەت و خۆشی! - لەلایەن 7AJI-Rebaz',
+                        url: window.location.href,
+                    }).catch(() => {
+                        alert('سوپاس بۆ هەوڵەکەت، پیرۆزبایی بڵاو بوو ❤️');
+                    });
+                } else {
+                    const dummy = document.createElement('textarea');
+                    const greetingText = "🌟 جەژنی قوربانتان پیرۆز بێت! 🌟\nجەژنێکی پڕ لە خێر و بەرەکەت بۆ هەمووان. 🕌 تقبل الله منا ومنكم 🕌\n- لەلایەن 7AJI-Rebaz";
+                    dummy.value = greetingText;
+                    document.body.appendChild(dummy);
+                    dummy.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(dummy);
+                    alert('پیرۆزباییەکە لە کلێپبۆرد کۆپی کرا! ئێستا دەتوانیت بۆ هاوڕێکانت بنێریت.');
+                }
+            });
+        }
+        
+        const greetAgainBtn = document.getElementById('greetAgainBtn');
+        const messageBoxPara = document.querySelector('.message-box p');
+        const alternativeMessages = [
+            '<strong>🏵️ جەژنی قوربان پیرۆز!</strong> هیوادارم ڕۆژانی جەژن بە خۆشی و شادی بەسەر بەریت، قوربانیەکەتان قبوڵ بێت. 🤲🏻',
+            '<strong>🍬 عید مبارک!</strong> بە دڵێکی پڕ لە ئیمان و خۆشحاڵی، جەژنێکی پڕ لە خێر و بەرەکەت بۆ خێزان و برادەرت. 🎊',
+            '<strong>🐏 جەژنەکەتان لەسەر خێر و شادی بێت!</strong> یادی ئیبراهیم و ئیسماعیل پیرۆز بێت، ئەم ڕۆژە پیرۆزە لەگەڵ کەسوکاری خۆشتان بە خۆشی بەسەر بەرن. 🕌',
+            '<strong>🌸 گوڵ و بۆنی جەژن... 🌸</strong> هەموو جەژنێک لەگەڵ خێزان و دۆستانی خۆشەویست. جەژنی قوربانتان پیرۆز بێت و هەموو خواستتان قبوڵ بێت. 🤍'
+        ];
+        let msgIndex = 0;
+        
+        if(greetAgainBtn && messageBoxPara) {
+            greetAgainBtn.addEventListener('click', () => {
+                msgIndex = (msgIndex + 1) % alternativeMessages.length;
+                messageBoxPara.innerHTML = alternativeMessages[msgIndex];
+                const tempSpan = document.createElement('span');
+                tempSpan.innerText = '✨';
+                tempSpan.style.position = 'fixed';
+                tempSpan.style.left = '50%';
+                tempSpan.style.top = '40%';
+                tempSpan.style.fontSize = '3rem';
+                tempSpan.style.opacity = '0.8';
+                tempSpan.style.pointerEvents = 'none';
+                tempSpan.style.transition = '0.4s';
+                document.body.appendChild(tempSpan);
+                setTimeout(() => { tempSpan.style.opacity = '0'; setTimeout(() => tempSpan.remove(), 500); }, 200);
+            });
+        }
+        
+        const allRtl = document.querySelectorAll('.message-box, .sub, .dua-text, footer, .signature');
+        allRtl.forEach(el => el.setAttribute('dir', 'rtl'));
+        document.querySelector('h1')?.setAttribute('dir', 'rtl');
+    })();
+</script>
+</body>
+</html>
